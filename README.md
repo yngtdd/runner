@@ -1,10 +1,10 @@
 # Runner
 
-Baby platformer.
+A baby platformer using [raylib](https://www.raylib.com/).
 
 ## Installation
 
-## Building from source
+### Building from source
 
 Make sure that you have [CMake](http://www.cmake.org/) and a C compiler installed.
 
