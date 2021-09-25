@@ -16,4 +16,4 @@ make
 
 ## License
 
-GPLv3
+zlib - following suit with raylib.
