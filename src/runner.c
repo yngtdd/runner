@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Window title");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "RUNNER");
     SetTargetFPS(60);
 
     Texture2D texture = LoadTexture(ASSETS_PATH"dino.png");
