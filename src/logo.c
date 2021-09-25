@@ -99,20 +99,7 @@ void draw_raylib_logo()
         }
         else if (state == 4)            // State 4: Reset and Replay
         {
-            if (IsKeyPressed(KEY_R))
-            {
-                framesCounter = 0;
-                lettersCount = 0;
-
-                topSideRecWidth = 16;
-                leftSideRecHeight = 16;
-
-                bottomSideRecWidth = 16;
-                rightSideRecHeight = 16;
-
-                alpha = 1.0f;
-                state = 0;          // Return to State 0
-            }
+					  break;
         }
         //----------------------------------------------------------------------------------
 
@@ -153,15 +140,10 @@ void draw_raylib_logo()
             }
             else if (state == 4)
             {
-                DrawText("[R] REPLAY", 340, 200, 20, GRAY);
+							  break;
             }
 
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
-
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
 }
