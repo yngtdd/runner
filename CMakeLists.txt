@@ -3,7 +3,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 project(runner)
 
 set(PROJECT_VERSION "0.1.0")
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 
 # Setting parameters for raylib
 # Don't build the raylib examples or games
