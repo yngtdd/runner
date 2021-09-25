@@ -39,9 +39,9 @@ void draw_raylib_logo()
     float alpha = 1.0f;             // Useful for fading
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-
-	/*TODO(Todd): remove this while loop.
-	 *
+    
+    /*TODO(Todd): remove this while loop.
+     *
 	 * It should be possible to use a for loop until the animation
 	 * has ended. Then, we can move to the launch screen of the game.
 	 */
@@ -176,7 +176,7 @@ void draw_raylib_logo()
             }
             else if (state == 4)
             {
-				break;
+                break;
             }
 
         EndDrawing();
