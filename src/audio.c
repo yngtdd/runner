@@ -4,11 +4,12 @@
  */
 void play_music()
 {
-	InitAudioDevice();
+   InitAudioDevice();
 
-	Music music = LoadMusicStream("../assets/audio.xm");
-  music.looping = false;
-	float pitch = 1.0f;
+   Music music = LoadMusicStream("../assets/audio.xm");
 
-	PlayMusicStream(music);
+   music.looping = false;
+   float pitch = 1.0f;
+
+   PlayMusicStream(music);
 }

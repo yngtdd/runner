@@ -1,5 +1,6 @@
-#include "raylib.h"
+#include "audio.h"
 #include "logo.h"
+#include "raylib.h"
 
 #define SCREEN_WIDTH (800)
 #define SCREEN_HEIGHT (450)
@@ -10,6 +11,7 @@ int main(void)
     SetTargetFPS(60);
 
 		draw_raylib_logo();
+		play_music();
 
     Texture2D texture = LoadTexture(ASSETS_PATH"dino.png");
 
