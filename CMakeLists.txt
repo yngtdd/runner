@@ -12,12 +12,34 @@ set(BUILD_GAMES    OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(libs/raylib)
 
-file(GLOB SOURCES "src/*.h" "src/*.c")
-add_executable(${PROJECT_NAME} ${SOURCES})
+set(CMAKE_BINARY_DIR
+    ${CMAKE_SOURCE_DIR}/build
+)
+
+set(EXECUTABLE_OUTPUT_PATH
+    ${CMAKE_SOURCE_DIR}/bin
+)
+
+set(LIBRARY_OUTPUT_PATH
+    ${CMAKE_SOURCE_DIR}/bin
+)
+
+include_directories(${PROJECT_SOURCE_DIR}/include/)
+include_directories(${CMAKE_BINARY_DIR})
+
+# file(GLOB SOURCES "src/*.h" "src/*.c")
+
+file(GLOB_RECURSE RUNNER_SRC
+    "${PROJECT_SOURCE_DIR}/include/*.h"
+    "${PROJECT_SOURCE_DIR}/src/*.c"
+)
+
+add_executable(${PROJECT_NAME} ${RUNNER_SRC})
+
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 
 target_compile_definitions(
-	${PROJECT_NAME} PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/"
-	)
+    ${PROJECT_NAME} PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/"
+)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
