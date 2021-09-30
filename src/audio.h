@@ -1,6 +1,8 @@
 #ifndef AUDIO_H
 #define AUDIO_H
 
-void play_music();
+#include "raylib.h"
+
+Music load_music();
 
 #endif // Audio implementation
