@@ -27,8 +27,6 @@ set(LIBRARY_OUTPUT_PATH
 include_directories(${PROJECT_SOURCE_DIR}/include/)
 include_directories(${CMAKE_BINARY_DIR})
 
-# file(GLOB SOURCES "src/*.h" "src/*.c")
-
 file(GLOB_RECURSE RUNNER_SRC
     "${PROJECT_SOURCE_DIR}/include/*.h"
     "${PROJECT_SOURCE_DIR}/src/*.c"
