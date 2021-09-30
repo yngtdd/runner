@@ -1,8 +1,11 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-project(runner)
+project(runner
+    VERSION 0.1.0.0
+    LANGUAGES C
+    DESCRIPTION "Baby Platformer"
+)
 
-set(PROJECT_VERSION "0.1.0")
 set(CMAKE_C_STANDARD 11)
 
 # Setting parameters for raylib
