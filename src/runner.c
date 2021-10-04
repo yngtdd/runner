@@ -21,12 +21,13 @@ int main(void)
     Music music = load_music();
     PlayMusicStream(music);
 
+    Texture2D texture = LoadTexture(ASSETS_PATH"dino.png");
+
     PhysicsBody floor = create_floor(SCREEN_WIDTH, SCREEN_HEIGHT);
     PhysicsBody platform_left = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.25f, 0.6f);
     PhysicsBody platfrom_right = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.75f, 0.6f);
     PhysicsBody wall_right = create_wall(SCREEN_WIDTH, SCREEN_HEIGHT, 5);
     PhysicsBody player = create_body(SCREEN_WIDTH, SCREEN_HEIGHT);
-
 
     while (!WindowShouldClose())
     {
@@ -41,21 +42,24 @@ int main(void)
         BeginDrawing();
 
         ClearBackground(BLACK);
-        DrawFPS(SCREEN_WIDTH - 90, SCREEN_HEIGHT - 30);
+        const int texture_x = SCREEN_WIDTH / 2 - texture.width / 2;
+        const int texture_y = SCREEN_HEIGHT / 2 - texture.height / 2;
+        DrawTexture(texture, texture_x, texture_y, WHITE);
+        /*DrawFPS(SCREEN_WIDTH - 90, SCREEN_HEIGHT - 30);*/
 
-        int bodies_count = GetPhysicsBodiesCount();
-        for (int i = 0; i < bodies_count; i++)
-        {
-            PhysicsBody body = GetPhysicsBody(i);
-            int vertex_count = GetPhysicsShapeVerticesCount(i);
-            for (int j = 0; j < vertex_count; j++)
-            {
-                Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
-                int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
-                Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
-                DrawLineV(vertex_a, vertex_b, GREEN);
-            }
-        }
+        /*int bodies_count = GetPhysicsBodiesCount();*/
+        /*for (int i = 0; i < bodies_count; i++)*/
+        /*{*/
+            /*PhysicsBody body = GetPhysicsBody(i);*/
+            /*int vertex_count = GetPhysicsShapeVerticesCount(i);*/
+            /*for (int j = 0; j < vertex_count; j++)*/
+            /*{*/
+                /*Vector2 vertex_a = GetPhysicsShapeVertex(body, j);*/
+                /*int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);*/
+                /*Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);*/
+                /*DrawLineV(vertex_a, vertex_b, GREEN);*/
+            /*}*/
+        /*}*/
 
         EndDrawing();
     }
