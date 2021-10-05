@@ -1,5 +1,7 @@
 # Runner
 
+[![CMakeBuilds](https://github.com/yngtdd/runner/actions/workflows/cmake.yml/badge.svg?branch=main)](https://github.com/yngtdd/runner/actions/workflows/cmake.yml)
+
 A baby platformer using [raylib](https://www.raylib.com/).
 
 ## Installation
