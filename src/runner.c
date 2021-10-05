@@ -26,7 +26,7 @@ int main(void)
     PhysicsBody platform_left = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.25f, 0.6f);
     PhysicsBody platfrom_right = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.75f, 0.6f);
     PhysicsBody wall_left = create_wall(SCREEN_WIDTH, SCREEN_HEIGHT, -SCREEN_WIDTH-5);
-    PhysicsBody wall_right = create_wall(SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+    PhysicsBody wall_right = create_wall(SCREEN_WIDTH, SCREEN_HEIGHT, 7);
     PhysicsBody player = create_body(SCREEN_WIDTH/2, SCREEN_HEIGHT);
 
     while (!WindowShouldClose())
