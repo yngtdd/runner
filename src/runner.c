@@ -10,18 +10,15 @@
 #define SCREEN_HEIGHT (450)
 #define VELOCITY    0.5f
 
-
 int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "RUNNER");
     SetTargetFPS(60);
 
-		draw_raylib_logo();
+    draw_raylib_logo();
 
     Music music = load_music();
     PlayMusicStream(music);
-
-    /*Texture2D texture = LoadTexture(ASSETS_PATH"dino.png");*/
 
 		PhysicsBody floor = create_floor(SCREEN_WIDTH, SCREEN_HEIGHT);
 		PhysicsBody platform_left = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.25f, 0.6f);
@@ -32,7 +29,7 @@ int main(void)
     while (!WindowShouldClose())
     {
         UpdateMusicStream(music);
-				UpdatePhysics();
+				//UpdatePhysics();
 
 				if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
 				else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
