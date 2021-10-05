@@ -7,7 +7,7 @@ Music load_music()
    InitAudioDevice();
 
    Music music = LoadMusicStream("../assets/audio.xm");
-   music.looping = false;
+   music.looping = true;
 
    return music;
 
