@@ -20,6 +20,8 @@ int main(void)
     Music music = load_music();
     PlayMusicStream(music);
 
+		InitPhysics();
+
     PhysicsBody floor = create_floor(SCREEN_WIDTH, SCREEN_HEIGHT);
     PhysicsBody platform_left = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.25f, 0.6f);
     PhysicsBody platfrom_right = create_platform(SCREEN_WIDTH, SCREEN_HEIGHT, 0.75f, 0.6f);
