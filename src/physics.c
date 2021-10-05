@@ -53,8 +53,8 @@ PhysicsBody create_body(int screen_width, int screen_height)
 {
     PhysicsBody body = CreatePhysicsBodyRectangle(
         (Vector2) {screen_width / 2, screen_height / 2},
-	    50,
-	    50,
+	      20,
+	      20,
         1
     );
 
