@@ -60,7 +60,7 @@ int main(void)
 
     UnloadMusicStream(music);
     CloseAudioDevice();
-		ClosePhysics();
+    ClosePhysics();
     CloseWindow();
 
     return 0;
