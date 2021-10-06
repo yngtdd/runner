@@ -20,6 +20,8 @@ int main(void)
     Music music = load_music();
     PlayMusicStream(music);
 
+		Texture2D bomberman = LoadTexture("../assets/bomberman.png");
+
     InitPhysics();
 
     PhysicsBody floor = create_floor(SCREEN_WIDTH, SCREEN_HEIGHT);
