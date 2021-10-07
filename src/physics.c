@@ -60,6 +60,8 @@ PhysicsBody create_body(int screen_width, int screen_height)
 
     // constrain body rotation
     body->freezeOrient = true;
+    body->staticFriction = 0.5f;
+    body->dynamicFriction = 0.5f;
 
     return body;
 }

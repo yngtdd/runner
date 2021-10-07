@@ -36,6 +36,8 @@ int main(void)
         UpdateMusicStream(music);
         UpdatePhysics();
 
+				DrawTexture(bomberman, 0, 0, RAYWHITE);
+
         if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
         else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
 
