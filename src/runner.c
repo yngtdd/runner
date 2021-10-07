@@ -20,6 +20,8 @@ int main(void)
     Music music = load_music();
     PlayMusicStream(music);
 
+    /*Texture2D bomberman = LoadTexture("../assets/bomberman.png");*/
+
     InitPhysics();
 
     PhysicsBody floor = create_floor(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -29,34 +31,47 @@ int main(void)
     PhysicsBody wall_right = create_wall(SCREEN_WIDTH, SCREEN_HEIGHT, 7);
     PhysicsBody player = create_body(SCREEN_WIDTH/2, SCREEN_HEIGHT);
 
+    bool pause = 0;
+    int frames_counter = 0;
+
     while (!WindowShouldClose())
     {
-        UpdateMusicStream(music);
-        UpdatePhysics();
+        if (IsKeyPressed(KEY_SPACE)) pause = !pause;
 
-        if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
-        else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
+        //DrawTexture(bomberman, 0, 0, RAYWHITE);
 
-        if (IsKeyDown(KEY_UP) && player->isGrounded) player->velocity.y = -VELOCITY*4;
+        if (!pause)
+        {
+            UpdateMusicStream(music);
+            UpdatePhysics();
+
+            if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
+            else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
+
+            if (IsKeyDown(KEY_UP) && player->isGrounded) player->velocity.y = -VELOCITY*4;
+
+            int bodies_count = GetPhysicsBodiesCount();
+            for (int i = 0; i < bodies_count; i++)
+            {
+                PhysicsBody body = GetPhysicsBody(i);
+                int vertex_count = GetPhysicsShapeVerticesCount(i);
+                for (int j = 0; j < vertex_count; j++)
+                {
+                    Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
+                    int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
+                    Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
+                    DrawLineV(vertex_a, vertex_b, GREEN);
+                }
+            }
+        }
+        else frames_counter++;
 
         BeginDrawing();
 
         ClearBackground(BLACK);
         DrawFPS(SCREEN_WIDTH - 90, SCREEN_HEIGHT - 30);
 
-        int bodies_count = GetPhysicsBodiesCount();
-        for (int i = 0; i < bodies_count; i++)
-        {
-            PhysicsBody body = GetPhysicsBody(i);
-            int vertex_count = GetPhysicsShapeVerticesCount(i);
-            for (int j = 0; j < vertex_count; j++)
-            {
-                Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
-                int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
-                Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
-                DrawLineV(vertex_a, vertex_b, GREEN);
-            }
-        }
+        if (pause && ((frames_counter/30)%2)) DrawText("PAUSED", 350, 200, 30, GRAY);
 
         EndDrawing();
     }
