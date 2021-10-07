@@ -53,15 +53,15 @@ int main(void)
             int bodies_count = GetPhysicsBodiesCount();
             for (int i = 0; i < bodies_count; i++)
             {
-                    PhysicsBody body = GetPhysicsBody(i);
-                    int vertex_count = GetPhysicsShapeVerticesCount(i);
-                    for (int j = 0; j < vertex_count; j++)
-                    {
-                            Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
-                            int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
-                            Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
-                            DrawLineV(vertex_a, vertex_b, GREEN);
-                    }
+                PhysicsBody body = GetPhysicsBody(i);
+                int vertex_count = GetPhysicsShapeVerticesCount(i);
+                for (int j = 0; j < vertex_count; j++)
+                {
+                    Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
+                    int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
+                    Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
+                    DrawLineV(vertex_a, vertex_b, GREEN);
+                }
             }
         }
         else frames_counter++;
