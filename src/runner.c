@@ -20,7 +20,7 @@ int main(void)
     Music music = load_music();
     PlayMusicStream(music);
 
-		Texture2D bomberman = LoadTexture("../assets/bomberman.png");
+    /*Texture2D bomberman = LoadTexture("../assets/bomberman.png");*/
 
     InitPhysics();
 
