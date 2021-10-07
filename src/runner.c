@@ -38,7 +38,7 @@ int main(void)
     {
         if (IsKeyPressed(KEY_SPACE)) pause = !pause;
 
-        DrawTexture(bomberman, 0, 0, RAYWHITE);
+        //DrawTexture(bomberman, 0, 0, RAYWHITE);
 
         if (!pause)
         {
