@@ -36,42 +36,42 @@ int main(void)
 
     while (!WindowShouldClose())
     {
-        UpdateMusicStream(music);
-        UpdatePhysics();
-
 				if (IsKeyPressed(KEY_SPACE)) pause = !pause;
 
 				DrawTexture(bomberman, 0, 0, RAYWHITE);
 
         if (!pause)
-				{
-					if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
-					else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
+        {
+            UpdateMusicStream(music);
+            UpdatePhysics();
 
-					if (IsKeyDown(KEY_UP) && player->isGrounded) player->velocity.y = -VELOCITY*4;
+            if (IsKeyDown(KEY_RIGHT)) player->velocity.x = VELOCITY;
+            else if (IsKeyDown(KEY_LEFT)) player->velocity.x = -VELOCITY;
 
-					int bodies_count = GetPhysicsBodiesCount();
-					for (int i = 0; i < bodies_count; i++)
-					{
-							PhysicsBody body = GetPhysicsBody(i);
-							int vertex_count = GetPhysicsShapeVerticesCount(i);
-							for (int j = 0; j < vertex_count; j++)
-							{
-									Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
-									int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
-									Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
-									DrawLineV(vertex_a, vertex_b, GREEN);
-							}
-					}
+				    if (IsKeyDown(KEY_UP) && player->isGrounded) player->velocity.y = -VELOCITY*4;
 
-					BeginDrawing();
-
-					ClearBackground(BLACK);
-					DrawFPS(SCREEN_WIDTH - 90, SCREEN_HEIGHT - 30);
-
-            if (pause && ((frames_counter/30)%2)) DrawText("PAUSED", 350, 200, 30, GRAY);
-
+				    int bodies_count = GetPhysicsBodiesCount();
+				    for (int i = 0; i < bodies_count; i++)
+				    {
+						    PhysicsBody body = GetPhysicsBody(i);
+						    int vertex_count = GetPhysicsShapeVerticesCount(i);
+						    for (int j = 0; j < vertex_count; j++)
+						    {
+								    Vector2 vertex_a = GetPhysicsShapeVertex(body, j);
+								    int jj = (((j + 1) < vertex_count) ? (j + 1) : 0);
+								    Vector2 vertex_b = GetPhysicsShapeVertex(body, jj);
+								    DrawLineV(vertex_a, vertex_b, GREEN);
+                }
+             }
         }
+        else frames_counter++;
+
+        BeginDrawing();
+
+        ClearBackground(BLACK);
+        DrawFPS(SCREEN_WIDTH - 90, SCREEN_HEIGHT - 30);
+
+        if (pause && ((frames_counter/30)%2)) DrawText("PAUSED", 350, 200, 30, GRAY);
 
         EndDrawing();
     }
