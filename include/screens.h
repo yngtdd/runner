@@ -30,10 +30,23 @@ typedef enum GameScreen {
     TITLE = 0
 } GameScreen;
 
+extern GameScreen current_screen;
+extern Font font;
+extern Music music;
+extern Sound fxCoin;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void init_title_screen(void);
 void update_title_screen(void);
 void draw_title_screen(void);
 void unload_tile_screen(void);
 int finish_title_screen(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // SCREENS_H
