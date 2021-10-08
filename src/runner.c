@@ -1,6 +1,7 @@
 #include "audio.h"
 #include "logo.h"
 #include "physics.h"
+#include "screens.h"
 #include "raylib.h"
 
 #define PHYSAC_IMPLEMENTATION
@@ -9,6 +10,10 @@
 #define SCREEN_WIDTH (800)
 #define SCREEN_HEIGHT (450)
 #define VELOCITY    0.5f
+
+GameScreen current_screen = 0;
+Font font = { 0 };
+Sound fxCoin = { 0 };
 
 int main(void)
 {

@@ -27,9 +27,9 @@ void update_title_screen(void)
  */
 void draw_title_screen(void)
 {
-    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), BLACK);
-    DrawTextEx( front, "Title Screen", (Vector2) { 20, 10 }, font.baseSize*3, 4, RAYWHITE);
-    DrawText("Press ENTER or Tap to jump to game", 120, 120, 20, RAYWHITE);
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), GREEN);
+    DrawTextEx(font, "TITLE SCREEN", (Vector2){ 20, 10 }, font.baseSize*3, 4, DARKGREEN);
+    DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, DARKGREEN);
 }
 
 /* Unload the title screen
@@ -43,6 +43,6 @@ void unload_title_screen(void)
  */
 int finish_title_screen(void)
 {
-    return finishScreen;
+    return finish_screen;
 }
 
